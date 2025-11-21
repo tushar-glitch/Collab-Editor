@@ -74,5 +74,3 @@ The application is built to demonstrate modern web development practices, includ
 
 
 
-## Deployment
-See [DEPLOYMENT.md](./DEPLOYMENT.md) for instructions on deploying to AWS EC2.
