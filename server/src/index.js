@@ -13,7 +13,7 @@ const server = http.createServer(app);
 
 // Middleware
 app.use(cors({
-  origin: [process.env.CLIENT_URL, 'http://localhost:5173', 'http://localhost:3000'],
+  origin: [process.env.CLIENT_URL, 'http://localhost:5173', 'http://localhost:3000', 'https://collab-editor-4ivo.vercel.app'],
   credentials: true
 }));
 app.use(express.json());
