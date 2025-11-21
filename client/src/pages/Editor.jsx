@@ -13,7 +13,7 @@ const Editor = () => {
   useEffect(() => {
     const fetchDocument = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/documents/${documentId}`);
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/documents/${documentId}`);
         setTitle(res.data.title);
       } catch (err) {
         console.error(err);
@@ -29,7 +29,7 @@ const Editor = () => {
 
   const saveTitle = async () => {
     try {
-      await axios.put(`http://localhost:5000/api/documents/${documentId}`, { title });
+      await axios.put(`${import.meta.env.VITE_API_URL}/api/documents/${documentId}`, { title });
     } catch (err) {
       console.error(err);
     }

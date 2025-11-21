@@ -11,7 +11,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchDocuments = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/documents');
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/documents`);
         setDocuments(res.data);
       } catch (err) {
         console.error('Error fetching documents', err);
@@ -22,7 +22,7 @@ const Dashboard = () => {
 
   const createDocument = async () => {
     try {
-      const res = await axios.post('http://localhost:5000/api/documents', { title: 'Untitled Document' });
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/documents`, { title: 'Untitled Document' });
       navigate(`/documents/${res.data._id}`);
     } catch (err) {
       console.error('Error creating document', err);

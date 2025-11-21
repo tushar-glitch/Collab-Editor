@@ -21,7 +21,7 @@ export const AuthProvider = ({ children }) => {
     const loadUser = async () => {
       if (token) {
         try {
-          const res = await axios.get('http://localhost:5000/api/auth/me');
+          const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/auth/me`);
           setUser(res.data);
         } catch (err) {
           console.error('Error loading user', err);
@@ -37,14 +37,14 @@ export const AuthProvider = ({ children }) => {
   }, [token]);
 
   const login = async (email, password) => {
-    const res = await axios.post('http://localhost:5000/api/auth/login', { email, password });
+    const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/login`, { email, password });
     localStorage.setItem('token', res.data.token);
     setToken(res.data.token);
     setUser(res.data.user);
   };
 
   const register = async (username, email, password) => {
-    const res = await axios.post('http://localhost:5000/api/auth/register', { username, email, password });
+    const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/register`, { username, email, password });
     localStorage.setItem('token', res.data.token);
     setToken(res.data.token);
     setUser(res.data.user);

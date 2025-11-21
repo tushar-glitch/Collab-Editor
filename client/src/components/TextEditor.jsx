@@ -16,7 +16,7 @@ const TextEditor = forwardRef(({ setContent }, ref) => {
 
   // Connect to Socket.io
   useEffect(() => {
-    const s = io('http://localhost:5000');
+    const s = io(import.meta.env.VITE_API_URL);
     setSocket(s);
 
     return () => {

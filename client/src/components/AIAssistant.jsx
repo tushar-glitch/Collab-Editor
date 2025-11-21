@@ -10,7 +10,7 @@ const AIAssistant = ({ content, onInsert }) => {
     setLoading(true);
     setResult('');
     try {
-      const res = await axios.post(`http://localhost:5000/api/ai/${endpoint}`, { text: content });
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/ai/${endpoint}`, { text: content });
       setResult(res.data.suggestion || res.data.summary || res.data.completion || res.data.enhancedText);
     } catch (err) {
       console.error(err);
